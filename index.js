@@ -156,7 +156,7 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
@@ -208,7 +208,7 @@ function firstNamesAllCaps(runners) {
   return runners.map((name) => {
     name.first_name.toUpperCase()
 
-
+    return runners
   })
 
 }
@@ -226,11 +226,15 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(runners, tShirtSize) {
-  return runners.filter(tShirtSize => {
-
-  })
+function getRunnersByTShirtSize(runners, tShirtSize, ) {
+  const size = runners.filter(item => item.shirt_size === tShirtSize);
+  return size;
 }
+
+
+
+
+
 
 /**
  * ### Challenge `tallyUpDonations`
@@ -243,12 +247,19 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @returns a number which is the sum of the donations by all runners.
 */
 function tallyUpDonations(runners) {
-  runners.reduce(function (number, total) {
-    return total + number
+  let donationSum = 0
+  for (let i = 0; i < runners.length; i++) {
+    donationSum += runners[i].donation;
+  }
+  let allDonations = [];
+  runners.reduce(function (total, amount) {
+    return allDonations.push(total + amount.donation)
   }, 0);
 
-
 }
+
+
+
 
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
