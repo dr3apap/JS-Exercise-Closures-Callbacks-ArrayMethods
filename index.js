@@ -179,8 +179,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-  return runners.map(fullNames => {
-  })
+  // return runners.map(fullNames => {
+  let fullName = [];
+  runners.forEach(item => fullName.push(item.last_name + ", " + item.first_name));
+  return fullName;
+
+  // })
 
 }
 
@@ -201,9 +205,12 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  runners.map(firstNames => {
-    return firstNames.uppercase()
+  return runners.map((name) => {
+    name.first_name.toUpperCase()
+
+
   })
+
 }
 
 /**
@@ -261,15 +268,16 @@ function tallyUpDonations(runners) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS 
-
   let count = 0;
-  function counter() {
-    return count += 1
+  return () => {
+    if (count <= count) {
+      return count++;
+    } else {
+      count = 0;
+      return count++;
+    }
   }
-  // ROKEN CODE ENDS
-
 }
-
 /**
  * ### Challenge `counterMakerWithLimit`
  * 
@@ -290,15 +298,25 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(number) {
-
-  let count = 0
-  function counter() {
-
-    return count += 1
-  }
-
+function counterMakerWithLimit(maxCount) {
+  let count = 0;
+  return () => {
+    if (count <= maxCount) {
+      return count++;
+    } else {
+      count = 0;
+      return count++;
+    }
+  };
 }
+
+
+
+
+// }
+
+// }
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
